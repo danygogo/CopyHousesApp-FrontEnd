@@ -1,0 +1,74 @@
+<div *ngIf="loading" class="loadingContainer">
+    <mat-spinner></mat-spinner>
+</div>
+
+
+
+<div *ngIf="!loading" class="container">
+  
+ 
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" *ngIf="photoArray[0] == null">
+        <img src="../../../../assets/images/noPhoto.jpg" class="d-block" alt="...">
+      </div>
+
+      <div class="carousel-item active" *ngIf="photoArray[0] != null">
+        <img [src]="photoArray[0]" class="d-block" alt="...">
+      </div>
+
+      <div class="carousel-item"  *ngFor="let photo of photoArray | slice:1; let i = index;" >
+        <img [src]="photo" class="d-block" alt="...">
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <div class="information">
+    <div class="row title">
+      <h2>{{house.title}}</h2>
+    </div>
+    <div class="row">
+      <!--Row 1-->
+      <div class="col-lg-6 col-md-12">
+        <div class="col-12"><p><strong>Price:</strong>{{house.price | currency}} </p></div>
+        <div class="col-12"><p><strong>Land Size:</strong> {{house.landSize}} m2</p></div>
+        <div class="col-12"><p><strong>Construction Size:</strong> {{house.constructionSize}} m2</p></div>
+        <div class="col-12"><p><strong>Kitchen and living room are together:</strong> {{house.kitchenAndLiving | trueFalse}}</p></div>
+        <div class="col-12">
+          <p><strong>See on the map: </strong>
+            <button mat-raised-button color="primary" (click)="showMap()" [disabled]="!location"> {{location | mapLocation}}</button>
+          </p>
+        </div>
+        <div class="col-12"><p><strong>Bedrooms:</strong> {{house.bedrooms}} </p></div>
+        <div class="col-12"><p><strong>Swimming Pool:</strong> {{house.hasPool | trueFalse}} </p></div>
+        <div class="col-12"><p><strong>City:</strong> {{house.city}} </p></div>
+        <br class="spacerElement">
+
+      </div>
+      <!--Row 2-->
+      <div class="col-lg-6 col-md-12">
+        <div class="col-12"><p><strong>Details:</strong> {{house.details}} </p></div>
+        <div class="col-12"><p><strong>Bathrooms:</strong> {{house.bathrooms}} </p></div>
+        <div class="col-12"><p><strong>Parkings:</strong> {{house.parkings}} </p></div>
+        <div class="col-12"><p><strong>Contact's name:</strong> {{house.name}} </p></div>
+        <div class="col-12"><p><strong>Contact's Phone:</strong> {{house.phone}} </p></div>
+        <div class="col-12"><p><strong>Contact's e-mail:</strong> {{house.mail}} </p></div>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-map [latitude]="house.lat" [longitude]="house.lng" *ngIf="showTheMap" (closeInstruction) = "closeMap()"></app-map>

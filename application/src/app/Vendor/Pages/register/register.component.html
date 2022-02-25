@@ -1,0 +1,25 @@
+<body>
+    <div class="myFlexBox">
+        <div class="sessionContainer">
+            <app-login *ngIf="hasAccount" (id)="setId($event)"></app-login>
+            <app-create *ngIf="!hasAccount" (id)="setId($event)"></app-create>
+            <div class="questionContainer">
+                <button mat-button color="accent" (click)="changeLogin()">{{hasAccount | btnText}}</button>
+            </div>
+        </div>
+
+        
+        
+    </div>
+</body>
+
+
+
+
+
+
+
+<!-- <a routerLink="./">login/Create</a><br>
+<a routerLink="./dashboard">Dashboard</a><br>
+<a routerLink="./form">Form</a>
+ -->

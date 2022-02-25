@@ -1,0 +1,26 @@
+.selectItem{
+    margin-right: 10px;
+}
+
+.formItem{
+    margin-top: 19px;
+}
+
+
+.formContainer{
+    display: flex;
+}
+
+
+
+@media screen and (max-width: 500px)
+{
+    .priceFilter{
+        width: 80px;
+    }
+
+    .selectFilter{
+        width: 170px;
+    }
+	
+}

@@ -1,0 +1,74 @@
+
+.searching{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+}
+
+
+.myCard{
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 3px 3px 5px rgb(71, 71, 71);
+    border-radius: 10px;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+img{
+    max-width: 300px;
+    max-height: 300px;
+}
+
+
+
+
+.paginatorHolder{
+    position: fixed;
+    width: 100%;
+    left: 0%;
+    bottom: 0;
+}
+
+
+.titleContainer{
+    color: coral;
+    text-align: right;
+}
+
+.labelHolder{
+    margin-bottom: 10px;
+}
+
+
+.detailLine{
+    margin-bottom: 15px;
+}
+
+
+.labelDetails{
+    margin-left: 20px;
+}
+
+
+
+
+@media screen and (max-width: 1199px)
+{
+    .infoDiv{
+        padding-left: 30px;
+    }
+	
+}
+
+
+@media screen and (max-width: 1199px)
+{
+    .titleContainer{
+        text-align: left;
+    }
+}

@@ -1,0 +1,113 @@
+.globalContainer{
+    width: 100%;
+    height: 100%;
+}
+
+.bgHome{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../assets/images/livingroom.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right bottom;
+    text-align: center;
+}
+
+.titleDiv{
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+
+
+p{
+    margin-top: 20%;
+    font-size: 3.5vw;
+    line-height: 1;
+}
+
+.buttonContainer{
+    margin-top: 10vh;
+}
+
+span{
+    flex: 1 1 auto;
+}
+
+a{
+    background-color: #9da490;
+    font-size: 2vw;
+    color: white;
+    text-decoration: none;
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width: 1140px)
+{
+	p{
+        margin-top: 30%;
+        font-size: 4vw;
+    }
+
+    a{
+        font-size: 2.5vw;
+        padding: 0.7em;
+        margin: 0.7em;
+    }
+
+}
+
+
+
+@media screen and (max-width: 992px)
+{
+	.titleDiv{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+
+    p{
+        margin-top: 30%;
+        font-size: 5vw;
+    }
+
+    a{
+        font-size: 3vw;
+    }
+
+}
+
+
+@media screen and (max-width: 576px)
+{
+    p{
+        margin-top: 30%;
+        font-size: 7vw;
+    }
+
+    a{
+        font-size: 4.5vw;
+    }
+
+}
+
+
+@media screen and (max-width: 500px)
+{
+
+    p{
+        margin-top: 30%;
+        font-size: 8vw;
+    }
+
+    a{
+        font-size: 5vw;
+    }
+
+}
+

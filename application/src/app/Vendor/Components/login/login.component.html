@@ -1,0 +1,26 @@
+<div class="childContainer">
+
+  <div >
+    <img src="../../../../assets/images/1.png" alt="login icon" class="loginImage">
+  </div>
+
+    <form class="loginForm" [formGroup]="myForm" (submit)="loginUser()">
+      <mat-form-field class="inputStyle" appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input matInput placeholder="E.g.: test1@test.com" type="email" formControlName="mail">
+      </mat-form-field>
+
+      <mat-form-field class="inputStyle" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Use at least 6 characters" type="password" formControlName="password">
+      </mat-form-field>
+
+      <button mat-raised-button color="accent" type="submit">Log in</button>
+    </form>
+
+
+
+
+
+</div>
+

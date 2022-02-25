@@ -1,0 +1,25 @@
+.example-spacer{
+    flex: 1 1 auto;
+}
+
+p{
+    margin: 0px;
+}
+
+.homeBtn{
+    padding: 10px;
+}
+
+.optionsBtn{
+    margin-right: 10px;
+
+}
+
+
+@media screen and (max-width: 576px)
+{
+	.toHide
+	{
+		display: none;
+	}
+}

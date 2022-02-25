@@ -1,0 +1,58 @@
+
+<!-- Loading -->
+<div *ngIf="searching" class="searching">
+    <mat-spinner></mat-spinner>
+</div>
+
+
+
+
+<!-- Content -->
+<div *ngIf="!searching">
+
+
+    <div *ngFor="let house of pageSlice" class="myCard">
+    <div  class="row" >
+        
+        <div class="col-md-6 col-lg-4 col-12">
+            <img src="../../../../assets/images/noPhoto.jpg" *ngIf="!house.photo1" >
+            <img [src]="house.photo1" *ngIf="house.photo1" >
+        </div>
+        <div class="col-md-6 col-lg-8 col-12 infoDiv">
+            <div class="row">
+                <div class="col-lg-8 col-md-12"><h2><strong>{{house.title}}</strong></h2></div>
+                <div class="col-lg-4 col-md-12 titleContainer"><h1><strong>{{house.price | currency}}</strong></h1></div>
+            </div>
+            <div class="row detailLine">
+                <div class="col-12"><span><mat-icon aria-hidden="false" aria-label="location icon">place</mat-icon></span><span class="labelDetails">{{house.city}}</span> </div>
+            </div>
+            <div class="row detailLine">
+                <div class="col-12"><span><mat-icon aria-hidden="false" aria-label="location icon">bathtub</mat-icon></span> <span class="labelDetails">  {{house.bathrooms}}</span> </div>
+            </div>
+            <div class="row detailLine">
+                <div class="col-12"><span><mat-icon aria-hidden="false" aria-label="location icon">king_bed</mat-icon></span><span class="labelDetails">  {{house.bedrooms}}</span></div>
+            </div>
+            
+            <button mat-raised-button color="accent" [routerLink]="['details', house.id]">Details</button>
+
+        </div>
+    </div>  
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<div class="paginatorHolder" *ngIf="!searching">
+    <div>
+        <mat-paginator [length]="filteredHouses.length"
+                   [pageSize]="5"
+                   [pageSizeOptions]="[5, 10, 15]"
+                   aria-label="Select page"
+                   (page)="onPageChange($event)"
+                   color="accent">
+        </mat-paginator>
+    </div>
+
+</div>

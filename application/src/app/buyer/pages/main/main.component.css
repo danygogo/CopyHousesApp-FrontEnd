@@ -1,0 +1,11 @@
+.bgHome{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../../assets/images/minimalist.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left bottom;
+    overflow: scroll;
+    /* align-items: baseline;  check this property to see if it is possible to center the search bar*/
+}

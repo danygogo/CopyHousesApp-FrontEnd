@@ -1,0 +1,84 @@
+body{
+    background-color: #e9ebe6;
+}
+
+
+.myHeader{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.loadingBox{
+    width: 100%;
+    height: 85%;
+    position: fixed;
+    top: 10%;
+    left: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.noPropertiesContainer{
+    width: 100%;
+    height: 85%;
+    position: fixed;
+    top: 100px;
+    justify-content: center;
+    align-items: center;
+    left: 0%;
+    display: flex;
+    flex-direction: column;
+}
+
+.AddSpace{
+    margin-right: 20px;
+}
+
+.btn{
+    width: 120px;
+}
+
+.titleNoHouses{
+    text-align: center;
+}
+
+
+.btnContainer{
+    text-align: center;
+}
+
+
+.resultContainer{
+    width: 100%;
+    height: 85%;
+    position: fixed;
+    top: 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+img{
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.houseElement{
+    background-color: #f0f1ef;
+    border: 1px solid #57663B;
+    box-shadow: 5px 5px 10px #57663B;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    margin-left: 5%;
+    
+}
+
+
+.resultTitle{
+    margin-left: 5%;
+}

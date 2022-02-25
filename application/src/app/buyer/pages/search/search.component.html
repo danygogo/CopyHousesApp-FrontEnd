@@ -1,0 +1,16 @@
+<div class="flex-container" *ngIf="!terms_Of_Search">
+    <div>
+        <app-filter (mySearch)="termsOfSearch($event)"></app-filter>
+    </div>
+</div>
+
+<div *ngIf="terms_Of_Search" class="container">
+    <div class="row">
+        <div class="col searchComponent">
+            <app-filter (mySearch)="termsOfSearch($event)"></app-filter>
+        </div>
+    </div>
+    
+    <app-table [termsOfSearch]="terms_Of_Search"></app-table>
+</div>
+

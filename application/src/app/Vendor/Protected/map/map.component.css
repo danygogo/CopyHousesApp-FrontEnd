@@ -1,0 +1,56 @@
+.backgroundMap{
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    z-index: 100;
+}
+
+.mapBox{
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    width: 80%;
+    height: 80%;
+    z-index: 200;
+    top: 10%;
+    left: 10%;
+}
+
+.buttonHolder{
+    position: fixed;
+    z-index: 300;
+    top: 150px;
+    margin-left: 10px;
+    left:10%;
+}
+
+.mapContainer{
+    width: 100%;
+    height: 100%;
+}
+
+.btnMap{
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 576px)
+{
+	.mapBox{
+        background-color: rgb(255, 255, 255);
+        position: fixed;
+        width: 95%; 
+        height: 80%;
+        z-index: 200;
+        top: 10%;
+        left: 2.5%;
+    }
+
+    .buttonHolder{
+        top: 150px;
+        left:2.5%;
+    }
+
+}

@@ -1,0 +1,40 @@
+.flex-container{
+    position: fixed;
+    top:42%;
+    width: 60%;
+    left: 20%;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.8);
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+ 
+}
+
+.searchComponent{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+@media screen and (max-width: 850px)
+{
+    .flex-container{
+        width: 80%;
+        left: 10%;
+    }
+	
+}
+
+
+@media screen and (max-width: 612px)
+{
+    .flex-container{
+        width: 100%;
+        left: 0%;
+    }
+}
+
+
+

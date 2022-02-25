@@ -1,0 +1,81 @@
+
+
+@use '@angular/material' as mat;
+@include mat.core();
+
+//defining the palettes
+$my-primary-color: (
+    50 : #f3f4f2,
+    100: #e2e4de,
+    200: #ced2c8,
+    300: #babfb1,
+    400: #acb2a1,
+    500: #9da490,
+    600: #959c88,
+    700: #8b927d,
+    800: #818973,
+    900: #6f7861,
+
+    contrast:(
+        50 : #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+    )
+);
+
+
+
+$my-accent-color: (
+    50 : #ebede7,
+    100: #cdd1c4,
+    200: #abb39d,
+    300: #899476,
+    400: #707d58,
+    500: #57663b,
+    600: #4f5e35,
+    700: #46532d,
+    800: #3c4926,
+    900: #2c3819,
+
+    contrast:(
+        50 : #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+    )
+);
+
+
+
+//new palettes applied
+$my-primary: mat.define-palette($my-primary-color);
+$my-accent: mat.define-palette($my-accent-color);
+
+// The "warn" palette will stay red
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+   warn: $my-warn,
+ )
+));
+
+//theme applied to all components
+@include mat.all-component-themes($my-theme);
+
+

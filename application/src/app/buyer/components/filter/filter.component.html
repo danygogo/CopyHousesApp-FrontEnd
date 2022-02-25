@@ -1,0 +1,38 @@
+
+<div class="formContainer">
+    <form [formGroup]="myForm" (submit)="SearchProperties()">
+
+
+                <mat-form-field appearance="fill" class="selectItem formItem selectFilter">
+                    <mat-label>City of your interest</mat-label>
+                    <mat-select formControlName = "city">
+                        <mat-option value="San José">San José</mat-option>
+                        <mat-option value="Heredia">Heredia</mat-option>
+                        <mat-option value="Cartago">Cartago</mat-option>
+                        <mat-option value="Limón">Limón</mat-option>
+                        <mat-option value="Alajuela">Alajuela</mat-option>
+                        <mat-option value="Puntarenas">Puntarenas</mat-option>
+                        <mat-option value="Guanacaste">Guanacaste</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="selectItem formItem priceFilter">
+                    <mat-label>Price</mat-label>
+                    <input matInput placeholder="$" formControlName="price" type="number">
+                  </mat-form-field>
+  
+
+                <button type = "submit" mat-fab color="accent" aria-label="search button">
+                <mat-icon>search</mat-icon>
+                </button>
+
+        
+    </form>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+<body>
+    <app-header class="myHeader"></app-header>
+
+    <div class="loadingBox" *ngIf="noData">
+        <mat-spinner color="accent"></mat-spinner>
+    </div>
+
+    <div  *ngIf="!noData && properties.length == 0" class="noPropertiesContainer">
+        
+            <div class="row"><h2 class="titleNoHouses">You haven't posted a house yet</h2></div>
+            <div class="row">
+                <p class="btnContainer">
+                    <button mat-raised-button color="accent" class="btn AddSpace" routerLink="/vendor/options/form">Create new</button>
+                    <button mat-raised-button color="accent" class="btn" (click)="logout()">log out</button>
+                </p>
+            </div>   
+     
+    </div>
+
+    <div  *ngIf="!noData && properties.length > 0" class="resultContainer">
+
+        <div class="row"><h2 class="resultTitle">Your properties:</h2></div>
+        <div class="row houseElement" *ngFor="let house of properties; let i = index">
+            <div class="col-md-4" >
+                <p><strong>Photo:</strong></p>
+                <img [src] ="house.photo1" alt="" *ngIf="house.photo1; else alternativePic">
+                <ng-template #alternativePic><img *ngIf="!house.photo1" src="../../../../assets/images/noPhoto.jpg" alt="no picture"></ng-template>
+            </div>
+            <div class="col-md-4" >
+                <p><strong>Description:</strong></p>
+                <p>{{house.title}}</p>
+            </div>
+            <div class="col-md-4" >
+                <p><strong>Sold</strong></p>
+                <p>No <mat-slide-toggle (change)="changeToSold($event, i)" checked = {{house.sold}} [disabled]="house.sold" ></mat-slide-toggle> Yes</p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <p class="btnContainer">
+                <button mat-raised-button color="accent" class="btn AddSpace" routerLink="/vendor/options/form">Create new</button>
+                <button mat-raised-button color="accent" class="btn" (click)="logout()">log out</button>
+            </p>
+        </div>   
+
+
+            
+            
+    </div>
+
+</body>

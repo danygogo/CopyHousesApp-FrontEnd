@@ -1,0 +1,225 @@
+
+<body>
+
+  <app-header class="myHeader"></app-header>
+
+  <div class="mapContainer" *ngIf="showMap">
+    <app-map (closeInstruction)="closeWindow($event)"></app-map>
+  </div>
+
+  <div class="buttonsContainer">
+    <button mat-raised-button color="accent" class="optionsBtns" (click)="goBack()">Go back</button>
+    <button mat-raised-button color="accent" (click)="logout()">log out</button>
+  </div>
+
+  <div class="formContainer">
+    <h1><strong>Your house's information</strong></h1>
+
+    <form [formGroup]="myForm" (submit)="save()">
+
+        <!-- Title -->
+        <div class="row">
+          <div class="col-md-4"><strong>Your post's title:</strong></div>
+          <div class="col-md-8">
+            <p>
+              <mat-form-field appearance="fill" class="inputStyle">
+                <mat-label>Title / small description</mat-label>
+                <input matInput placeholder="Your post's title" formControlName="title">
+                <mat-error *ngIf="1==1">The title is required</mat-error>
+              </mat-form-field>
+          </p>
+          </div>
+        </div>
+
+
+        <!-- LandSize -->
+        <div class="row">
+          <div class="col-md-4"><strong>Lot Size (m2):</strong></div>
+          <div class="col-md-8">
+            <p>
+              <mat-form-field appearance="fill" class="inputStyle">
+                <mat-label>Lot Size (m2):</mat-label>
+                <input matInput placeholder="Lot size (m2)" formControlName="landSize" type="number">
+              </mat-form-field>
+          </p>
+          </div>
+        </div>
+
+
+        <!-- Living area -->
+        <div class="row">
+          <div class="col-md-4"><strong>Construction area (m2):</strong></div>
+          <div class="col-md-8">
+            <p>
+              <mat-form-field appearance="fill" class="inputStyle">
+                <mat-label>Construction area in m2</mat-label>
+                <input matInput placeholder="Construction area in m2" formControlName="constructionSize" type="number">
+              </mat-form-field>
+          </p>
+          </div>
+        </div>
+
+        <!-- Kitchen and livind room are together -->
+        <div class="row">
+          <div class="col-md-4"><strong>The kitchen and the living room are in the same area:</strong></div>
+          <div class="col-md-8">
+            <p>
+              No <mat-slide-toggle formControlName= "kitchenAndLiving"></mat-slide-toggle> Yes
+            </p>
+          </div>
+        </div>
+        
+
+        <!--Geolocation-->
+        <div class="row extraSpace">
+          <div class="col-md-4"><strong>Add geolocation:</strong></div>
+          <div class="col-md-8">
+            <button type="button" (click)="displayMap()" mat-raised-button color="accent">Set geolocation <mat-icon>place</mat-icon></button>
+          </div>
+        </div>
+
+        <!-- Price -->
+        <div class="row">
+          <div class="col-md-4"><strong>Price ($):</strong></div>
+          <div class="col-md-8">
+            <p>
+              <mat-form-field appearance="fill" class="inputStyle">
+                <mat-label>Price</mat-label>
+                <input matInput placeholder="Price ($)" formControlName="price" type="number">
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+        
+        
+        <!-- Bedrooms -->
+        <div class="row">
+          <div class="col-md-4"><strong>Number of bedrooms</strong></div>
+          <div class="col-md-8">
+            <p>
+              <mat-form-field appearance="fill" class="inputStyle">
+                <mat-label>Number of bedrooms</mat-label>
+                <input matInput placeholder="Number of bedrooms" formControlName="bedrooms" type="number">
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+        
+
+        <!-- Bathrooms -->
+        <div class="row">
+          <div class="col-md-4"><strong>Number of bathrooms:</strong></div>
+          <div class="col-md-8">
+            <p>
+              <mat-form-field appearance="fill" class="inputStyle">
+                <mat-label>Number of bathrooms</mat-label>
+                <input matInput placeholder="Number of bathrooms" formControlName="bathrooms" type="number">
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+
+
+        <!-- Pool -->
+        <div class="row spaceBottom">
+          <div class="col-md-4"><strong>The house has swimming pool</strong></div>
+          <div class="col-md-8">
+            <p>
+              No <mat-slide-toggle formControlName= "hasPool"></mat-slide-toggle> Yes
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <!--City-->
+        <div class="row">
+          <div class="col-md-4"><strong>City</strong></div>
+          <div class="col-md-8">
+            <p>
+              <mat-form-field appearance="fill" class="inputStyle">
+                <mat-select  appearance="fill" formControlName = "city">
+                  <mat-option value="San José">San José</mat-option>
+                  <mat-option value="Heredia">Heredia</mat-option>
+                  <mat-option value="Cartago">Cartago</mat-option>
+                  <mat-option value="Limón">Limón</mat-option>
+                  <mat-option value="Alajuela">Alajuela</mat-option>
+                  <mat-option value="Puntarenas">Puntarenas</mat-option>
+                  <mat-option value="Guanacaste">Guanacaste</mat-option>
+                </mat-select>
+              </mat-form-field>
+              
+            </p>
+            
+          </div>
+        </div>
+
+
+        <!-- Parkings -->
+        <div class="row">
+          <div class="col-md-4"><strong>Number of parkings</strong></div>
+          <div class="col-md-8">
+            <p>
+              <mat-form-field appearance="fill" class="inputStyle">
+                <mat-label>Parkings</mat-label>
+                <input matInput placeholder="Number of parkings" formControlName="parkings" type="number">
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+
+       
+
+        <!-- Details -->
+        <div class="row">
+          <div class="col-md-4"><strong>Extra information</strong></div>
+          <div class="col-md-8">
+            <p class="pDetails">
+              <mat-form-field appearance="fill" class="inputStyle detailsForm" style="margin-bottom: -1.25em">
+                  <mat-label>Extra information</mat-label>
+                  <textarea matInput formControlName = "details"></textarea>
+              </mat-form-field>
+            </p>
+            <p>
+              <span class="charactersCounter" *ngIf="myForm.controls['details'].value">{{myForm.controls["details"].value.length}}/400</span>
+              <span class="charactersCounter" *ngIf="!myForm.controls['details'].value">0/400</span>
+            </p>
+          </div>
+        </div>
+        
+
+
+        <!-- Picture -->
+        <div class="row">
+          <div class="col-md-4"><strong>Photos (no more than 8)</strong></div>
+          <div class="col-md-8">
+            <input type="file" (change)="sendFile($event)" multiple id = "uploadInput">
+          </div>
+        </div>
+
+
+        <div class="row spaceTop" *ngIf="uploadedImages[0] != null">
+          <div class="col-md-4"><strong>Photos preview:</strong></div>
+          <div class="col-md-8">
+            <div class="row">
+              <div *ngFor="let picture of uploadedImages" class="col-md-4">
+                <img [src]="picture" alt="no image">
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <button mat-raised-button color="accent" class="saveButton" type="submit">Save <mat-icon>save</mat-icon></button>
+
+    </form>
+
+  </div>
+
+
+
+</body>
+
+
+
+
